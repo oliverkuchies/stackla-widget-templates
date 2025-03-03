@@ -36,9 +36,21 @@
   },
   "license": "MIT",
   "optionalDependencies": {
-    "@esbuild/linux-x64": "^0.23.1"
+    "@esbuild/linux-x64": "^0.23.1",
+    "@swc/core": "^1.11.5",
+    "@swc/core-darwin-arm64": "^1.11.5",
+    "@swc/core-darwin-x64": "^1.11.5",
+    "@swc/core-linux-arm-gnueabihf": "^1.11.5",
+    "@swc/core-linux-arm64-gnu": "^1.11.5",
+    "@swc/core-linux-arm64-musl": "^1.11.5",
+    "@swc/core-linux-x64-gnu": "^1.11.5",
+    "@swc/core-linux-x64-musl": "^1.11.5",
+    "@swc/core-win32-arm64-msvc": "^1.11.5",
+    "@swc/core-win32-ia32-msvc": "^1.11.5",
+    "@swc/core-win32-x64-msvc": "^1.11.5"
   },
   "devDependencies": {
+    "@cypress/snapshot": "^2.1.7",
     "@happy-dom/jest-environment": "^15.0.0",
     "@stackla/eslint-config": "^1.0.0",
     "@stackla/handlebars": "^0.1.7",

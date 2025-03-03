@@ -1,9 +1,12 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { configureVisualRegression } from "cypress-visual-regression"
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { defineConfig } from "cypress"
 // eslint-disable-next-line import/no-extraneous-dependencies
 import cypressSplit from "cypress-split"
+
+import { register } from "@cypress/snapshot";
+
+register();
 
 export default defineConfig({
   e2e: {
@@ -16,7 +19,6 @@ export default defineConfig({
     supportFile: "cypress/support/e2e.js",
     video: true,
     setupNodeEvents(on, config) {
-      configureVisualRegression(on)
       cypressSplit(on, config)
       return config
     },

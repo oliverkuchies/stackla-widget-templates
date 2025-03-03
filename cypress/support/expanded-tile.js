@@ -12,7 +12,6 @@ Cypress.Commands.add("shouldExpandedTile", widgetType => {
 
   cy.getExpandedTile().should("exist")
 
-  // Set visibility to hidden for all images
   cy.getExpandedTile().find(".image-element").should("exist").invoke("css", "visibility", "hidden")
 
   cy.wait(1000)
@@ -21,12 +20,10 @@ Cypress.Commands.add("shouldExpandedTile", widgetType => {
   cy.get("body").should("have.css", "overflow", "hidden")
 })
 
-Cypress.Commands.add("expandedTileSnapshot", widgetType => {
+Cypress.Commands.add("expandedTileExists", widgetType => {
   cy.wait(4000)
 
   cy.getExpandedTile().find(".ugc-tile[data-id='65e16a0b5d7e676caec68f03']").first().should("exist")
-  // Broken - To be fixed
-  //.compareSnapshot(`${widgetType}-tile`)
 })
 
 Cypress.Commands.add("getExpandedTile", () => {

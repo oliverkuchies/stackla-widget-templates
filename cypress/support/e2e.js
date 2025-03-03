@@ -8,8 +8,6 @@
 import "./expanded-tile"
 import "./share-menu"
 
-import { addCompareSnapshotCommand } from "cypress-visual-regression/dist/command"
-
 export const WIDGET_ID = "ugc-widget-668ca52ada8fb"
 
 function getUgcTileSelectorByWidgetType(widgetType) {
@@ -21,28 +19,10 @@ function getUgcTileSelectorByWidgetType(widgetType) {
   }
 }
 
-addCompareSnapshotCommand({
-  capture: "viewport",
-  errorThreshold: 0.1
-})
-
 Cypress.Commands.add("before", () => {})
 
-Cypress.Commands.add("waitAndDisableImages", () => {
-  cy.wait(8000)
-
-  cy.window().then(window => {
-    const tiles = window.ugc.getWidgetBySelector().sdk.querySelectorAll(".tile")
-    tiles.forEach(tile => {
-      tile.style = ""
-      tile.style.border = "1px solid red"
-    })
-
-    const images = window.ugc.getWidgetBySelector().sdk.querySelectorAll(".ugc-tile img")
-    images.forEach(image => {
-      image.style.visibility = "hidden"
-    })
-  })
+Cypress.Commands.add('getShadowRoot', () => {
+  return cy.get(WIDGET_ID).shadow()
 })
 
 Cypress.Commands.add("visitWidget", widgetType => {
@@ -61,20 +41,10 @@ Cypress.Commands.add("visitWidget", widgetType => {
   cy.wait("@getWidget")
 
   cy.get(WIDGET_ID).shadow().find(getUgcTileSelectorByWidgetType(widgetType), { timeout: 10000 }).first()
-
-  cy.waitAndDisableImages()
-})
-
-Cypress.Commands.add("widgetSnapshot", widgetType => {
-  cy.snapshot(`${widgetType}-widget`)
 })
 
 Cypress.Commands.add("getFirstTile", widgetType => {
   return cy.get(WIDGET_ID).shadow().find(getUgcTileSelectorByWidgetType(widgetType)).first()
-})
-
-Cypress.Commands.add("snapshot", name => {
-  cy.compareSnapshot(name)
 })
 
 Cypress.Commands.add("getProductComponent", expandedTile => {

@@ -9,13 +9,13 @@ describe("Should test the nightfall", () => {
     cy.before()
   })
 
-  it("Should show widget contents", () => {
-    cy.widgetSnapshot(WIDGET_TYPE)
-  })
+  it('Should contain the correct tag structure', () => {
+    cy.checkTagsSnapshot(WIDGET_TYPE)
+  });
 
   it("Should expand tile", () => {
     cy.shouldExpandedTile(WIDGET_TYPE)
-    cy.expandedTileSnapshot(WIDGET_TYPE)
+    cy.expandedTileExists(WIDGET_TYPE)
   })
 
   it("Should load share icons", () => {
