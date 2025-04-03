@@ -38,6 +38,7 @@
     }
 
     .tile {
+      min-width: dimens.$tile-width-md !important;
       width: dimens.$tile-width-md !important;
       height: dimens.$tile-height-md !important;
 
