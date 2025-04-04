@@ -40,6 +40,7 @@ export function StoryExpandedTile({ tile }: ExpandedTileProps) {
         <div class={`network-icon icon-${tile.source}`}></div>
       </div>
       <div class="panel-active">
+        <div class="overlay"></div>
         <AutoplayProgress />
         <tile-content
           tileId={tile.id}
