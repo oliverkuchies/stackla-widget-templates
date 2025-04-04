@@ -71,7 +71,7 @@ expanded-tiles:not(:empty) {
     .panel-active {
       tile-content .header {
         position: absolute;
-        left: 0px;
+        left: 0;
         right: 0;
         top: 20px;
         display: flex;
