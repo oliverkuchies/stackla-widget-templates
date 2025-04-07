@@ -5,14 +5,17 @@
 #nosto-ugc-container {
   .ugc-tile {
     position: relative;
+    min-width: var(--tile-width) !important;
     width: var(--tile-width) !important;
     display: flex;
+    margin-right: 10px;
 
     .tile {
       display: flex;
       align-items: center;
       justify-content: center;
       width: 100%;
+      background-size: cover;
 
       .tile-image-wrapper {
         display: flex;

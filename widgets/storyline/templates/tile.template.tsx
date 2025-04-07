@@ -1,10 +1,10 @@
 import { ISdk, Tile } from "@stackla/widget-utils/types"
 import { createElement, createFragment } from "@stackla/widget-utils"
 import {
-  VideoContainer,
-  VideoErrorFallbackTemplate,
   ExpandedTileProps,
-  ShopspotProps
+  ShopspotProps,
+  VideoContainer,
+  VideoErrorFallbackTemplate
 } from "@stackla/widget-utils/components"
 
 declare const sdk: ISdk
@@ -13,14 +13,13 @@ export function StoryExpandedTile({ tile }: ExpandedTileProps) {
   const { show_shopspots, show_products, show_sharing, show_timestamp } = sdk.getExpandedTileConfig()
 
   const shopspotEnabled = sdk.isComponentLoaded("shopspots") && show_shopspots && !!tile.hotspots?.length
+
   let productsEnabled = false
 
-  if (sdk.isComponentLoaded("products") && show_products && !!tile.tags_extended?.length) {
-    const products = tile.tags_extended.filter(({ type }) => type === "product")
-    productsEnabled = products.length > 0
+  if (sdk.isComponentLoaded("products") && show_products && sdk.getProductTagsFromTile(tile)?.length) {
+    productsEnabled = true
   }
 
-  // const tagsEnabled = show_tags
   const sharingToolsEnabled = show_sharing
 
   const parent = sdk.getNodeId()
@@ -36,10 +35,12 @@ export function StoryExpandedTile({ tile }: ExpandedTileProps) {
           render-timephrase={show_timestamp}
           orientation="vertical"
           mode="dark"
-          render-user-handle="false"></tile-content>
+          render-user-handle="false"
+          render-reel-icon={tile.attrs?.includes("instagram.reel")}></tile-content>
         <div class={`network-icon icon-${tile.source}`}></div>
       </div>
       <div class="panel-active">
+        <div class="overlay"></div>
         <AutoplayProgress />
         <tile-content
           tileId={tile.id}
@@ -134,14 +135,13 @@ export function ImageTemplate({
 }) {
   return image ? (
     <>
-      <div class="image-filler blurred" style={{ "background-image": `url('${image}')` }}></div>
+      <div class="image-filler" style={{ "background-image": `url('${image}')` }}></div>
       <div class="image">
         {shopspotEnabled ? (
           <ShopSpotTemplate shopspotEnabled={shopspotEnabled} parent={parent} tileId={tile.id} />
         ) : (
           <></>
         )}
-        <img class="image-element" src={image} loading="lazy" alt={tile.description || "Image"} />
       </div>
     </>
   ) : (

@@ -16,6 +16,10 @@ expanded-tiles:not(:empty) {
     transition: ease all 0.5s;
   }
 
+  .ugc-tile {
+      min-height: 500px;
+  }
+
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -64,6 +68,34 @@ expanded-tiles:not(:empty) {
     flex-direction: column;
     position: relative;
 
+    .panel-active {
+      .overlay {
+        position: absolute;
+        inset: 0;
+        background-color: rgb(0 0 0 / 20%);
+        z-index: 1;
+      }
+
+      tile-content .header {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 20px;
+        display: flex;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+
+      .content-icon {
+        margin-top: 15px;
+        margin-left: 20px;
+      }
+
+      time-phrase {
+        padding-top: 10px;
+      }
+    }
+
     .story-progress-wrapper {
       box-sizing: border-box;
       z-index: 50;
@@ -72,6 +104,8 @@ expanded-tiles:not(:empty) {
       padding: 2px;
       justify-content: center;
       margin-top: 15px;
+      position: absolute;
+      top: 10px;
 
       .story-autoplay-progress {
         display: flex;
@@ -130,6 +164,7 @@ expanded-tiles:not(:empty) {
           align-items: flex-start;
           width: dimens.$width;
           height: dimens.$height;
+          max-height: 90vh !important;
 
           .panel-active,
           .panel-inactive {
@@ -143,6 +178,7 @@ expanded-tiles:not(:empty) {
           }
 
           .panel-inactive {
+            margin-left: -10%;
             display: grid;
             place-content: center;
             place-items: center;
@@ -165,7 +201,6 @@ expanded-tiles:not(:empty) {
             background: var(--expanded-tiles-background);
 
             tile-content {
-              margin: 10px;
               flex: 1;
               z-index: 1;
             }
@@ -176,7 +211,7 @@ expanded-tiles:not(:empty) {
 
             .image-wrapper {
               display: flex;
-              position: relative;
+              position: absolute;
               height: 100%;
               width: 100%;
 
@@ -305,6 +340,8 @@ expanded-tiles:not(:empty) {
               }
 
               .swiper-inline-products {
+                max-width: 95%;
+                border-radius: 5px;
                 height: fit-content;
 
                 .tile-product {
@@ -446,7 +483,7 @@ expanded-tiles:not(:empty) {
             inset: 0;
 
             &.blurred {
-              filter: blur(20px);
+              filter: blur(20px) brightness(0.5);
             }
           }
         }
