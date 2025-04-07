@@ -33,6 +33,7 @@ expanded-tiles:not(:empty) {
   position: relative;
 
   .play-icon {
+    z-index: 9;
     display: inline-block;
     width: dimens.$play-icon-width;
     height: dimens.$play-icon-height;
