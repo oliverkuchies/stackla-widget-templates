@@ -66,6 +66,15 @@ expanded-tiles {
                 color: white !important;
             }
 
+            .ugc-add-to-cart-sizepicker-btn[selected="true"] {
+                border: 1px solid white !important;
+                background-color: white !important;
+
+                span {
+                    color: black !important;
+                }
+            }
+
             #variant-container {
                 p {
                     color: white !important;
@@ -77,15 +86,6 @@ expanded-tiles {
 
                 color: white !important;
             }
-
-            .ugc-add-to-cart-sizepicker-btn[selected="true"] {
-                border: 1px solid white !important;
-                background-color: white !important;
-                span {
-                    color: black !important;
-                }
-            }
-
             
            .ugc-add-to-cart-colorpicker-ring span {
                 &::after {
