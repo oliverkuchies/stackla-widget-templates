@@ -12,12 +12,17 @@ loadWidget({
   },
   callbacks: {
     onLoad: [() => registerResizeObserver()],
-    onTilesUpdate: [() => createSubmitMoreContentBtn()],
     onTileBgImageError: [calculateTilesToShow]
   }
 })
 
-createSubmitMoreContentBtn()
+const observer = new MutationObserver(createSubmitMoreContentBtn)
+observer.observe(sdk.querySelector(".ugc-tile"), {
+  childList: true,
+  subtree: true
+})
+
+calculateTilesToShow()
 
 function createSubmitMoreContentBtn() {
   const submitMoreContentBtn = (
