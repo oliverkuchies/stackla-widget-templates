@@ -54,19 +54,39 @@ expanded-tiles {
         }
 
         add-to-cart {
+            .ugc-add-to-cart-colorpicker-text * {
+                color: white !important;
+            }
+
+            .ugc-add-to-cart-colorpicker-text {
+                color: white !important;
+            }
+
+            .ugc-add-to-cart-other-variant-selector {
+                color: white !important;
+            }
+
+            #variant-container {
+                p {
+                    color: white !important;
+                }
+
+                p span {
+                    color: white !important;
+                }
+
+                color: white !important;
+            }
+
             .ugc-add-to-cart-sizepicker-btn[selected="true"] {
                 border: 1px solid white !important;
                 background-color: white !important;
-
                 span {
                     color: black !important;
                 }
             }
 
-            #variant-container p span {
-                color: white !important;
-            }
-
+            
            .ugc-add-to-cart-colorpicker-ring span {
                 &::after {
                     background-color: white !important;
