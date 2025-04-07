@@ -29,7 +29,7 @@ export function ExpandedTile({ tile }: ExpandedTileProps) {
             <div class="image-wrapper-inner">
               {tile.media === "video" ? (
                 <>
-                  <VideoContainer tile={tile} parent={parent} />
+                  <VideoContainer shopspotEnabled={shopspotEnabled} tile={tile} parent={parent} />
                   <VideoErrorFallbackTemplate tile={tile} />
                 </>
               ) : tile.media === "image" ? (
