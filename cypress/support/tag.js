@@ -3,7 +3,8 @@
 /* eslint-disable promise/prefer-await-to-then */
 /* eslint-disable cypress/no-unnecessary-waiting */
 
-import tagsnapshot from "./tagsnapshot.json"
+import tagSnapshot from "./snapshots/tagsnapshot.json"
+import { getPropsFromComputedStyle } from "./snapshots/snapshot"
 Cypress.Commands.add("shouldLoadTags", widgetType => {
   cy.getFirstTile(widgetType).should("exist").click({ force: true })
 
@@ -12,8 +13,8 @@ Cypress.Commands.add("shouldLoadTags", widgetType => {
     .find("tile-tags")
     .first()
     .then($el => {
-      const style = window.getComputedStyle($el[0])
-      expect(JSON.stringify(style)).to.equal(JSON.stringify(tagsnapshot))
+      const style = getPropsFromComputedStyle($el[0])
+      expect(JSON.stringify(style)).to.equal(JSON.stringify(tagSnapshot))
     })
 
   cy.getExpandedTile().find("tile-tags").first().should("exist").click({ force: true })
