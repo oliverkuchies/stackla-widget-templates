@@ -359,7 +359,7 @@ export default [
       {
         id: 46,
         stack_id: 1451,
-        type: "product",
+        type: "content",
         tag: "Kathmandu 6",
         tag_sanitized: null,
         slug: "kathmandu4",
