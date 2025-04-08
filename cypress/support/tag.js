@@ -7,8 +7,7 @@ import tagsnapshot from "./tagsnapshot.json"
 Cypress.Commands.add("shouldLoadTags", widgetType => {
   cy.getFirstTile(widgetType).should("exist").click({ force: true })
 
-  cy.wait(1000)
-
+  cy.getExpandedTile().find("tile-tags").first().should("be.visible")
   cy.getExpandedTile()
     .find("tile-tags")
     .first()
