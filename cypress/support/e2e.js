@@ -7,6 +7,7 @@
 
 import "./expanded-tile"
 import "./share-menu"
+import "./tag"
 
 import { addCompareSnapshotCommand } from "cypress-visual-regression/dist/command"
 

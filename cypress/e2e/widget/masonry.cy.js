@@ -21,4 +21,8 @@ describe("Should test the masonry", () => {
   it("Should load share icons", () => {
     cy.shouldLoadShareMenu(WIDGET_TYPE)
   })
+
+  it("Should load tags", () => {
+    cy.shouldLoadTags(WIDGET_TYPE)
+  })
 })
