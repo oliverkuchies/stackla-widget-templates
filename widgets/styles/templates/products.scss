@@ -231,11 +231,10 @@
         line-height: 160%;
         text-overflow: ellipsis;
         overflow-y: scroll;
-        scrollbar-width: none;
         display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
         margin: 10px 0 16px;
+        min-height: 130px;
+        scrollbar-width: thin;
       }
     }
   }
