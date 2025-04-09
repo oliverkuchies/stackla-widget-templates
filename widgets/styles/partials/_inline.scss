@@ -2,5 +2,11 @@
     .ugc-tile {
         cursor: pointer;
         max-width: 400px;
+
+        .video-content {
+            display: flex;
+            object-fit: cover;
+            object-position: top;
+        }
     }
 }
