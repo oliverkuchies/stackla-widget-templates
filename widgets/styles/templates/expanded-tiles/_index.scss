@@ -120,6 +120,7 @@ expanded-tiles:not(:empty) {
       grid-template-rows: 1fr;
 
       .panel-left {
+        min-height: 300px;
         min-width: $panel-left-width;
         display: flex;
         place-items: center center;
@@ -281,7 +282,9 @@ expanded-tiles:not(:empty) {
       .panel-right {
         display: flex;
         padding: dimens.$panel-padding;
-        overflow: hidden auto;
+        overflow-y: scroll;
+        scrollbar-width: none;
+        max-height: 80vh;
 
         .panel-right-wrapper {
           display: flex;
