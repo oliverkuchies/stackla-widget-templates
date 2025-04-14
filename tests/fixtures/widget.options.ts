@@ -40,7 +40,7 @@ const widgetOptions: SharedWidgetOptions["widgetOptions"] = {
       show_caption: true,
       show_products: true,
       show_add_to_cart: true,
-      auto_play_video: true,
+      auto_play_video: false,
       show_inline_tiles: false,
       show_carousel: false
     },
