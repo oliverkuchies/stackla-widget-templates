@@ -37,10 +37,10 @@
         width: 100%;
         max-height: unset;
         overflow: hidden;
-        margin-bottom: 56px;
 
         .panel-left,
         .panel-right {
+          height: 100%;
           width: auto;
         }
 
@@ -99,12 +99,12 @@
         .swiper-wrapper {
           max-width: 100vw;
 
-          .swiper-slide {
-            height: 100vh;
+          .ugc-tile {
+            min-height: 100vh;
           }
 
           .panel {
-            height: 100vh;
+            min-height: 100vh;
             grid-template-columns: minmax(100%, 1fr) !important;
             grid-template-rows: auto !important;
 

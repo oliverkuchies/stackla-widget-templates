@@ -32,6 +32,10 @@ expanded-tiles:not(:empty) {
   max-height: dimens.$height-lg;
   position: relative;
 
+  .ugc-tiles {
+    height: auto !important;
+  }
+
   .play-icon {
     z-index: 9;
     display: inline-block;
@@ -311,6 +315,7 @@ expanded-tiles:not(:empty) {
               display: var(--tags-display-expanded);
               margin: 0 16.4px 8.4px 0;
               width: 100%;
+         
             }
           }
         }

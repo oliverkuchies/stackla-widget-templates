@@ -8,5 +8,11 @@
             object-fit: cover;
             object-position: top;
         }
+
+        tile-tags {
+            .swiper-wrapper {
+                align-items: center;
+            }
+        }
     }
 }
