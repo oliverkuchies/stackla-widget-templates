@@ -1,4 +1,4 @@
-import { waitForElements, type ISdk } from "@stackla/widget-utils"
+import { EVENT_LOAD, EVENT_LOAD_MORE, waitForElements, type ISdk } from "@stackla/widget-utils"
 
 declare const sdk: ISdk
 
@@ -81,7 +81,7 @@ export async function preloadTileImagesAndRemoveBrokenTiles(tiles: NodeListOf<HT
 
   const promises = Array.from(tiles).map(async tile => {
     const tileElement = tile.querySelector<HTMLElement>(".tile")
-    const tileImage = tileElement?.getAttribute("data-background-image") ?? ""
+    const tileImage = tileElement?.querySelector("img")?.src
     const inlineVideoPlay = tileElement?.classList.contains("inline-video-play")
     return new Promise(resolve => {
       if (inlineVideoPlay) {
@@ -97,14 +97,12 @@ export async function preloadTileImagesAndRemoveBrokenTiles(tiles: NodeListOf<HT
       if (!tileImage) {
         resolve(null)
       }
-      image.src = tileImage
+      image.src = tileImage ?? ""
 
       if (!tileElement) {
         resolve(null)
         return
       }
-
-      tileElement.style.backgroundImage = `url(${tileImage})`
     })
   })
 
@@ -119,7 +117,7 @@ export async function preloadTileImagesAndRemoveBrokenTiles(tiles: NodeListOf<HT
 
 export function getQuadrantTiles() {
   const { inline_tile_size } = sdk.getStyleConfig()
-  sdk.addEventListener("moreLoad", () => {
+  sdk.addEventListener(EVENT_LOAD_MORE, () => {
     const tileSize = tileSizes[inline_tile_size ?? "medium"]
 
     waitForElements(tilesContainer, ".ugc-tile:not(.processed)", async newTiles => {
@@ -131,7 +129,7 @@ export function getQuadrantTiles() {
     })
   })
 
-  sdk.addEventListener("load", async () => {
+  sdk.addEventListener(EVENT_LOAD, async () => {
     const tiles = sdk.querySelectorAll<HTMLElement>(".ugc-tile")
 
     if (!tiles || tiles.length === 0) {

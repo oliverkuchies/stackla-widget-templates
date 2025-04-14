@@ -35,8 +35,8 @@ export function initializeSwiperForInlineStoryTiles() {
     prevButton: "swiper-inline-story-button-prev",
     nextButton: "swiper-inline-story-button-next",
     paramsOverrides: {
-      slidesPerView: "auto",
-      spaceBetween: 10,
+      slidesPerView: getSlidesPerView(),
+      spaceBetween: 5,
       grabCursor: true,
       slidesOffsetBefore: 0,
       allowTouchMove: true,
