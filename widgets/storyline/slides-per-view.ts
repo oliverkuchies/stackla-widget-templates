@@ -1,4 +1,5 @@
 import { Sdk } from "types"
+import { getTileWidthBySizeString } from "@stackla/widget-utils"
 
 declare const sdk: Sdk
 
@@ -46,21 +47,21 @@ const slidesPerViewByDimension = {
   "300-large": 2
 }
 
-export function getSlidesPerView(dimen: number) {
+export function getSlidesPerView(screenWidth: number = window.innerWidth): number {
   const {
     enable_custom_tiles_per_page: isCustomTilesPerPageEnabled,
     tiles_per_page: tilesPerPage,
-    inline_tile_size: tileSize
+    inline_tile_size: tileSizeString
   } = sdk.getStyleConfig()
+
+  screenWidth = Math.min(screenWidth, 1130)
+  const tileSize = getTileWidthBySizeString(tileSizeString).replace("px", "")
+  const tileSizeWithMargin = Number(tileSize)
+  const slidesPerView = Math.ceil(screenWidth / tileSizeWithMargin)
 
   if (isCustomTilesPerPageEnabled && tilesPerPage) {
     return parseInt(tilesPerPage)
   }
 
-  const key = `${dimen}-${tileSize}` as Key
-
-  if (key in slidesPerViewByDimension) {
-    return slidesPerViewByDimension[key]
-  }
-  return "auto"
+  return slidesPerView
 }

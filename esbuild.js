@@ -200,7 +200,7 @@ async function buildAll() {
     },
     treeShaking: true,
     banner: {
-      js: isDevelopment
+      js: env == "development"
         ? `(() => {
       const ws = new WebSocket("ws://localhost:3001");
       ws.onmessage = () => {
@@ -241,9 +241,9 @@ async function buildAll() {
 
   if (env == "development") {
     config.minify = false
-    config.sourcemap = "inline"
+    config.sourcemap = "linked"
 
-    if (isWatch) {
+    if (isWatch && env == "development") {
       startWebSocketServer()
     }
   }
