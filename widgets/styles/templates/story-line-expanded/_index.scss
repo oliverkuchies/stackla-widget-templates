@@ -10,6 +10,13 @@ html {
 
 expanded-tiles {
   --expanded-tiles-background: #fff;
+  .swiper-3d {
+    perspective: none !important;
+  }
+
+  .story-expanded {
+      max-width: 500px;
+  }
 }
 
 expanded-tiles:not(:empty) {
@@ -540,17 +547,6 @@ expanded-tiles:not(:empty) {
     padding: 16px;
     max-width: 80vw;
     margin: 0 auto;
-  }
-}
-
-
-expanded-tiles {
-  .swiper-3d {
-    perspective: none !important;
-  }
-
-  .story-expanded {
-      max-width: 500px;
   }
 }
 
