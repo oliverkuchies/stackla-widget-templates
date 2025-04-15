@@ -349,15 +349,10 @@ expanded-tiles:not(:empty) {
               }
 
               .swiper-inline-products {
-                max-width: 95%;
                 border-radius: 5px;
                 height: fit-content;
 
                 .tile-product {
-                  &:not(.swiper-slide-active) {
-                    visibility: hidden !important;
-                  }
-
                   width: 329px;
                   border-radius: 10px;
                   background-color: #FFF;
