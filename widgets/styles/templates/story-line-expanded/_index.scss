@@ -2,6 +2,7 @@
 @use "dimens";
 @use "../add-to-cart";
 @use "../products";
+@use "@styles/partials/media-queries";
 
 html {
   background: var(--widget-background);
@@ -493,4 +494,67 @@ expanded-tiles:not(:empty) {
 
   @include products.products-styles;
   @include add-to-cart.add-to-cart-styles;
+}
+
+@include media-queries.breakpoint(mobile) { 
+  expanded-tiles:not(:empty) {
+    height: 100vh !important;
+  }
+
+  iframe {
+    z-index: 9 !important;
+  }
+
+  .expanded-tile-overlay {
+    justify-content: stretch !important;
+    align-items: stretch !important;
+    max-width: none;
+    max-height: none;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .story-expanded {
+    overflow-y: hidden !important;
+  }
+
+  .story-progress-wrapper {
+    top: -5px !important;
+  }
+
+  .story-controls {
+    right: 0 !important;
+    padding-top: 20px;
+    padding-right: 20px;
+  }
+
+  .ugc-products-wrap {
+    width: 100vw;
+  }
+
+  .share-menu-timephrase-wrapper {
+    padding-top: 10px !important;
+  }
+
+  ugc-products {
+    padding: 16px;
+    max-width: 80vw;
+    margin: 0 auto;
+  }
+}
+
+
+expanded-tiles {
+  .swiper-3d {
+    perspective: none !important;
+  }
+
+  .story-expanded {
+      max-width: 500px;
+  }
+}
+
+#overlay-expanded-tiles {
+  margin: 0;
+  padding: 0;
 }

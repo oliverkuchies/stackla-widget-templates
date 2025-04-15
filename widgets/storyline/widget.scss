@@ -6,6 +6,15 @@ expanded-tiles {
   .swiper-3d {
     perspective: none !important;
   }
+
+  .story-expanded {
+      max-width: 500px;
+  }
+}
+
+#overlay-expanded-tiles {
+  margin: 0;
+  padding: 0;
 }
 
 #nosto-ugc-container {
