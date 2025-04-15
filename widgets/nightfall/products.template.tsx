@@ -26,7 +26,7 @@ export function ProductHeader({ product }: { product: TagExtended }) {
   )
 }
 
-export function ProductCTA({ sdk, product }: { sdk: Sdk; product: TagExtended }) {
+export function ProductCTA({ sdk, product, tileId }: { sdk: Sdk; product: TagExtended; tileId: string }) {
   const { custom_url, target, availability, cta_text = "Buy Now", currency, id } = product
   const addToCart = sdk.getLoadedComponents().includes("add-to-cart")
   const parentNodeId = sdk.getNodeId()
@@ -43,6 +43,7 @@ export function ProductCTA({ sdk, product }: { sdk: Sdk; product: TagExtended })
           <span className={`stacklapopup-products-item-button${availability ? "" : " disabled"}`}>{cta_text}</span>
         </a>
         <add-to-cart
+          tile-id={tileId}
           theme="dark"
           productId={id}
           id={`stacklapopup-add-to-cart-${id}`}
@@ -63,7 +64,7 @@ export function ProductCTA({ sdk, product }: { sdk: Sdk; product: TagExtended })
   )
 }
 
-export function ProductDetails({ sdk, product }: { sdk: Sdk; product: TagExtended }) {
+export function ProductDetails({ sdk, product, tileId }: { sdk: Sdk; product: TagExtended; tileId: string }) {
   const selectedProduct = sdk.getSelectedProduct()
   const selectedProductId = selectedProduct ? selectedProduct.id : null
   const { custom_url, description = "Buy Now", id } = product
@@ -75,7 +76,7 @@ export function ProductDetails({ sdk, product }: { sdk: Sdk; product: TagExtende
   return (
     <div className={`stacklapopup-products-item-content ${itemActive}`} data-tag-id={id} data-custom-url={custom_url}>
       <div className="stacklapopup-products-item-description-wrapper">{descriptionContent}</div>
-      <ProductCTA sdk={sdk} product={product}></ProductCTA>
+      <ProductCTA sdk={sdk} product={product} tileId={tileId}></ProductCTA>
     </div>
   )
 }
@@ -167,7 +168,9 @@ export default function ProductsTemplate(sdk: Sdk, component?: IProductsComponen
     : null
 
   const selectedProduct: TagExtended = selectedProductById || products[0]
-  const mappedProducts = products.map(product => <ProductDetails sdk={sdk} product={product}></ProductDetails>)
+  const mappedProducts = products.map(product => (
+    <ProductDetails sdk={sdk} product={product} tileId={tileId}></ProductDetails>
+  ))
 
   return (
     <>
