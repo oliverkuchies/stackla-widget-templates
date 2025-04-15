@@ -4,6 +4,8 @@
 
 #nosto-ugc-container {
   .ugc-tile {
+    border-radius: var(--inline-tile-border-radius);
+    overflow: hidden;
     position: relative;
     width: 100%;
     display: flex;
