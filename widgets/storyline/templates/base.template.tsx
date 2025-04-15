@@ -10,7 +10,17 @@ export function StoryExpandedTiles(sdk: ISdk) {
   return (
     <div class="expanded-tile-wrapper" variation="story">
       <StoryControls />
-      <div class="swiper swiper-expanded">
+      <div class="swiper swiper-expanded story-expanded">
+        <div
+          class="swiper-expanded-button-prev swiper-button-prev btn-lg"
+          style={{ display: navigationArrowsEnabled ? "flex" : "none" }}>
+          <span class="chevron-left" alt="Previous arrow" />
+        </div>
+        <div
+          class="swiper-expanded-button-next swiper-button-next btn-lg"
+          style={{ display: navigationArrowsEnabled ? "flex" : "none" }}>
+          <span class="chevron-right" alt="Next arrow" />
+        </div>
         <div class="swiper-wrapper ugc-tiles">
           {tiles.map(tile => (
             <div
@@ -23,16 +33,6 @@ export function StoryExpandedTiles(sdk: ISdk) {
           ))}
         </div>
       </div>
-      <div
-        class="swiper-expanded-button-prev swiper-button-prev btn-lg"
-        style={{ display: navigationArrowsEnabled ? "flex" : "none" }}>
-        <span class="chevron-left" alt="Previous arrow" />
-      </div>
-      <div
-        class="swiper-expanded-button-next swiper-button-next btn-lg"
-        style={{ display: navigationArrowsEnabled ? "flex" : "none" }}>
-        <span class="chevron-right" alt="Next arrow" />
-      </div>
     </div>
   )
 }
@@ -40,8 +40,8 @@ export function StoryExpandedTiles(sdk: ISdk) {
 function StoryControls() {
   return (
     <div class="story-controls">
-      <span class="icon-video-volume volume-ctrl" />
-      <span class="icon-video-mute mute-ctrl hidden" />
+      <span class="icon-video-volume volume-ctrl hidden" />
+      <span class="icon-video-mute mute-ctrl" />
       <span class="icon-video-pause pause-ctrl" />
       <span class="icon-video-play play-ctrl hidden" />
       <span class="exit">
