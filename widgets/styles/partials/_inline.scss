@@ -1,5 +1,9 @@
 #nosto-ugc-container {
     .ugc-tile {
+        iframe {
+            border: 0 !important;
+        }
+        
         cursor: pointer;
         max-width: 400px;
 
