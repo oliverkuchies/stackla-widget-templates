@@ -1,5 +1,5 @@
 import { createElement, createFragment } from "@stackla/widget-utils/jsx"
-import { IProductsComponent, ISdk, Sdk, TagExtended } from "@stackla/widget-utils/types"
+import { IProductsComponent, ISdk, Sdk, TagExtended, Tile } from "@stackla/widget-utils/types"
 
 export function ProductHeader({ product }: { product: TagExtended }) {
   if (!product) return <></>
@@ -26,7 +26,7 @@ export function ProductHeader({ product }: { product: TagExtended }) {
   )
 }
 
-export function ProductCTA({ sdk, product }: { sdk: ISdk; product: TagExtended }) {
+export function ProductCTA({ sdk, product, tile }: { sdk: Sdk; product: TagExtended; tile: Tile }) {
   const { custom_url, target, availability, cta_text = "Buy Now", currency, id } = product
   const addToCart = sdk.getLoadedComponents().includes("add-to-cart")
   const parentNodeId = sdk.getNodeId()
@@ -43,8 +43,9 @@ export function ProductCTA({ sdk, product }: { sdk: ISdk; product: TagExtended }
           <span className={`stacklapopup-products-item-button${availability ? "" : " disabled"}`}>{cta_text}</span>
         </a>
         <add-to-cart
+          tile-id={tile.id}
           productId={id}
-          id={`stacklapopup-add-to-cart-${id}`}
+          id={`stacklapopup-add-to-cart-${id}-${tile.id}`}
           url={custom_url}
           target={target}
           availability={availability}
