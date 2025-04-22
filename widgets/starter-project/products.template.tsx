@@ -1,5 +1,5 @@
 import { createElement, createFragment } from "@stackla/widget-utils/jsx"
-import { IProductsComponent, ISdk, Sdk, TagExtended, Tile } from "@stackla/widget-utils/types"
+import { IProductsComponent, Sdk, TagExtended, Tile } from "@stackla/widget-utils/types"
 
 export function ProductHeader({ product }: { product: TagExtended }) {
   if (!product) return <></>
