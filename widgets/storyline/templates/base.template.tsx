@@ -42,10 +42,10 @@ function StoryControls() {
     <div class="story-controls">
       <span class="icon-video-volume volume-ctrl hidden" />
       <span class="icon-video-mute mute-ctrl" />
-      <span class="icon-video-pause pause-ctrl" />
-      <span class="icon-video-play play-ctrl hidden" />
+      <span class="icon-story-video-pause pause-ctrl" />
+      <span class="icon-story-video-play play-ctrl hidden" />
       <span class="exit">
-        <span class="widget-icon close-white"></span>
+        <span class="widget-icon story-close-white"></span>
       </span>
     </div>
   )

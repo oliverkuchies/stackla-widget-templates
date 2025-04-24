@@ -4,6 +4,7 @@
 @use "colors";
 @use "../add-to-cart";
 @use "../products";
+@use "@styles/partials/media-queries";
 
 $max-height: 880px;
 $min-height: 88vh;
@@ -11,6 +12,14 @@ $panel-left-width: unset;
 
 html {
   background: var(--widget-background);
+}
+
+#overlay-expanded-tiles {
+  margin: 0 !important;
+  padding: 0 !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  border:0 !important;
 }
 
 expanded-tiles {
@@ -98,6 +107,13 @@ expanded-tiles:not(:empty) {
             }
           }
         }
+      }
+    }
+
+    @include media-queries.breakpoint(tablet) {
+      .exit {
+        right: 8px !important;
+        top: 13px !important;
       }
     }
 
