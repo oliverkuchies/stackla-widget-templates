@@ -178,6 +178,7 @@ expanded-tiles:not(:empty) {
                 width: 100%;
                 height: 100%;
                 margin-bottom: 0;
+                object-fit: cover;
               }
             }
 
@@ -259,10 +260,6 @@ expanded-tiles:not(:empty) {
             .image {
               height: 100%;
               width: 100%;
-
-              img.image-element {
-                object-fit: cover;
-              }
             }
 
             .carousel-grouping-img {
