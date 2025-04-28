@@ -253,6 +253,17 @@ expanded-tiles:not(:empty) {
             align-items: center;
             justify-content: center;
             overflow: hidden;
+            height: 100%;
+            width: 100%;
+
+            .image {
+              height: 100%;
+              width: 100%;
+
+              img.image-element {
+                object-fit: cover;
+              }
+            }
 
             .carousel-grouping-img {
               min-width: 100%;
