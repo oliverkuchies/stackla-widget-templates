@@ -86,11 +86,15 @@
 
     &.arrows-hidden {
       .swiper-nav-icon {
-        display: none !important;
-      }
+        cursor: not-allowed;
 
-      .swiper-expanded-product-recs {
-        width: 100% !important;
+        &.icon-prev {
+          background-image: url("assets/svg/prev-grey.svg") !important;
+        }
+
+        &.icon-next {
+          background-image: url("assets/svg/next-grey.svg") !important;
+        }
       }
     }
 
