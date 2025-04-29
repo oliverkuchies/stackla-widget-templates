@@ -89,7 +89,7 @@
   },
   "dependencies": {
     "@stackla/widget-utils": "workspace:*",
-    "cookie-parser": "^1.4.6",
+    "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
     "express": "^4.21.2",
     "happy-dom": "^14.12.3",
